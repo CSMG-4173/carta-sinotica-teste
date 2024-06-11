@@ -31,4 +31,4 @@ jobs:
 
     - name: Run script
       run: |
-        python download_Data.py
+        python scripts/data/download_data_v01.py
