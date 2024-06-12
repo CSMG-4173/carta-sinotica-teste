@@ -46,7 +46,7 @@ jobs:
         pip install ecCodes
         pip install xarray
         pip install numpy
-        pip install wrf-python==1.3.4.1
+        conda install -c conda-forge wrf-python
 
     - name: Run script
       run: |
