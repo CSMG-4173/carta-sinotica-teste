@@ -44,12 +44,11 @@ hora = now.strftime('%H')
 metar_url = f"https://thredds.ucar.edu/thredds/fileServer/noaaport/text/metar/metar_{ano}{mes}{dia}_{hora}00.txt"
 
 # Diretório de download
-output_dir = "scripts/data"
-os.makedirs(output_dir, exist_ok=True)
+output_dir = "scripts/data/"
 
 # Nome do arquivo METAR com data e hora
 metar_file_name = f"metar_data_{ano}{mes}{dia}_{hora}00.txt"
-metar_file_path = os.path.join(output_dir, metar_file_name)
+metar_file_path = os.path.join(output_dir, 'METAR/', metar_file_name)
 
 # Faz o download do arquivo METAR
 urllib.request.urlretrieve(metar_url, metar_file_path)
@@ -77,7 +76,7 @@ print(url)
 
 # Nome do arquivo a ser baixado
 file_name = f'gfs.t{ano}{dia}{hora}z.pgrb2.0p{resolution}.f000'
-file_path = os.path.join(output_dir, file_name)
+file_path = os.path.join(output_dir, 'GFS/', file_name)
 
 # Print do nome do arquivo
 print("File name: ", file_name)
