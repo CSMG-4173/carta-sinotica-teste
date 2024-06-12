@@ -9,13 +9,14 @@ Descrição: Este script baixa dados METAR, GFS e GOES para uma data e hora espe
 e armazena os arquivos na pasta 'scripts/data' dentro do repositório GitHub.
 """
 
+# ------------------ IMPORTA BLIBLIOTECA --------------
 import requests
 import os
 import urllib.request
 import time as t
 from datetime import datetime, timedelta
 
-
+# ------------------  FUNÇÕES -------------------------
 # Função para limpar arquivos antigos
 def limpar_arquivos_antigos(diretorio, dias=7):
     agora = datetime.now()
