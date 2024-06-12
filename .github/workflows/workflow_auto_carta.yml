@@ -50,4 +50,4 @@ jobs:
 
     - name: Run script
       run: |
-        python scripts/data/download_data_v01.py
+        python scripts/data/carta_sinotica.py
