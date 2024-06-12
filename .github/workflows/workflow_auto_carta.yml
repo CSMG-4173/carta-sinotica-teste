@@ -1,1 +1,35 @@
+name: Executar Script Python download Data
 
+on:
+  schedule:
+    # Agendar para rodar às 00:00, 06:00, 12:00 e 18:00 UTC todos os dias
+    - cron: '0 4 05 * *'
+    - cron: '0 10 05 * *'
+    - cron: '0 16 05 * *'
+    - cron: '0 22 05 * *'
+  push:
+    branches:
+      - main
+
+jobs:
+  run-python:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests
+        
+
+    - name: Run script
+      run: |
+        python scripts/data/download_data_v01.py
