@@ -13,7 +13,7 @@ import requests
 import os
 import urllib.request
 import time as t
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 # Função para limpar arquivos antigos
