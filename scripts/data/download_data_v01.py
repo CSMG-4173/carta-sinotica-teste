@@ -16,6 +16,9 @@ import urllib.request
 import time as t
 from datetime import datetime, timedelta
 
+# Diretório de download
+output_dir = "scripts/data/"
+
 # ------------------  FUNÇÕES -------------------------
 # Função para limpar arquivos antigos
 def limpar_arquivos_antigos(diretorio, dias=7):
@@ -60,9 +63,6 @@ hora = rounded_time.strftime('%H')
 
 # Construa o URL do METAR com a hora arredondada
 metar_url = f"https://thredds.ucar.edu/thredds/fileServer/noaaport/text/metar/metar_{ano}{mes}{dia}_{hora}00.txt"
-
-# Diretório de download
-output_dir = "scripts/data/"
 
 # Nome do arquivo METAR com data e hora
 metar_file_name = f"metar_data_{ano}{mes}{dia}_{hora}00.txt"
