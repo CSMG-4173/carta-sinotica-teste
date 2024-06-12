@@ -30,16 +30,24 @@ def limpar_arquivos_antigos(diretorio, dias=7):
                 print(f'Removendo arquivo antigo: {file_path}')
                 os.remove(file_path)
 
-
-
 # Obter a data e hora atuais
 now = datetime.utcnow()
 
+# Defina os horários desejados, vale ressaltar que está em UTC
+desired_hours = [0, 6, 12, 18]
+
+# Encontre o horário desejado mais próximo
+nearest_desired_hour = max(filter(lambda x: x <= now.hour, desired_hours))
+
+# Crie a hora arredondada para a URL
+rounded_time = now.replace(hour=nearest_desired_hour, minute=0, second=0, microsecond=0)
+
+
 # Extrair dia, mês, ano e hora
-dia = now.strftime('%d')
-mes = now.strftime('%m')
-ano = now.strftime('%Y')
-hora = now.strftime('%H')
+dia = rounded_time.strftime('%d')
+mes = rounded_time.strftime('%m')
+ano = rounded_time.strftime('%Y')
+hora = rounded_time.strftime('%H')
 
 # Construa o URL do METAR com a hora arredondada
 metar_url = f"https://thredds.ucar.edu/thredds/fileServer/noaaport/text/metar/metar_{ano}{mes}{dia}_{hora}00.txt"
