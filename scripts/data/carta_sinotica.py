@@ -5,29 +5,7 @@ Autores: Vitor Tenório e João GM Ribeiro
 Data de Criação: 12 jun 2024
 Descrição: Este script plota uma carta sinotica com dados METAR, GFS e GOES para uma data e hora específicas
 e armazena os arquivos na pasta 'scripts/data/carta' dentro do repositório GitHub.
-##Instalando
 """
-
-!pip install matplotlib
-!pip install pygrib
-!pip install cartopy
-!pip install metpy
-!pip install netCDF4
-!pip install siphon
-!apt-get install libproj-dev proj-data proj-bin
-!apt-get install libgeos-dev
-!pip install cartopy
-!apt-get -qq install python-cartopy python3-cartopy
-!pip uninstall -y shapely
-!pip install geopandas
-!apt-get install libeccodes-dev libproj-dev
-!pip install importlib-metadata==4.13.0
-!pip install cfgrib
-!pip install ecCodes
-!pip install xarray
-!pip install numpy
-!pip install wrf-python==1.3.4.1
-
 """##Importando"""
 
 import warnings
@@ -70,9 +48,6 @@ import requests                      # HTTP library for Python
 import time as t                     # Time access and conversion
 from bs4 import BeautifulSoup        # Library for web scraping
 from bs4 import UnicodeDammit        # For encoding detection and correction
-
-from google.colab import drive
-drive.mount('/content/drive')
 
 """##Plotando o Mapa
 
